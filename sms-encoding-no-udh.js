@@ -34,11 +34,11 @@ function calculateMessageLength(str) {
                 return acc + seg.length * 16;
             }, 0);
 
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         } else {
             let length = str.length * 16;
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         }
     } else {
@@ -72,13 +72,13 @@ function calculateMessageLength(str) {
                 }, 0);
             }, 0);
 
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         } else {
             let length = str.split('').reduce((acc, char) => {
                 return acc + (GSM_7_2slotChars.has(char) ? 14 : 7);
             }, 0);
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         }
     }

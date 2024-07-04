@@ -34,11 +34,11 @@ function calculateBitLength(str) {
                 return acc + 48 + seg.length * 16;
             }, 0);
 
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         } else {
             let bitLength = str.length * 16;
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         }
     } else {
@@ -72,14 +72,14 @@ function calculateBitLength(str) {
                 }, 0);
             }, 0);
 
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         } else {
             let bitLength = str.split('').reduce((acc, char) => {
                 return acc + (GSM_7_2slotChars.has(char) ? 14 : 7);
             }, 0);
 
-            const encoding = isUCS2 ? "UCS2" : "GSM-7";
+            const encoding = isUCS2 ? "UCS-2" : "GSM-7";
             return { encoding, length };
         }
     }
